@@ -7,7 +7,7 @@ void test_num_sol(int N, double *num_sol)
 
     for (int i=1; i<=N; i++)
     {
-        val = abs(num_sol[i] - (sin(5.0*i/N) + cos(3.0*i/N)));
+        val = fabs(num_sol[i] - (sin(5.0*i/N) + cos(3.0*i/N)));
         l2_norm += val*val;
 
         if (val > c_norm)
@@ -15,6 +15,6 @@ void test_num_sol(int N, double *num_sol)
             c_norm = val;
         }
     }
-    std::cout<<"l2_norm: "<<sqrt(l2_norm)/N<<std::endl;
+    std::cout<<"l2_norm: "<<sqrt(l2_norm/N)<<std::endl;
     std::cout<<"c_norm: "<<c_norm<<std::endl;
 }
